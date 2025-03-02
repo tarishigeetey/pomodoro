@@ -1,12 +1,12 @@
 import { useEffect, useRef } from "react";
 
-export default function Timer({ timeLeft, setTimeLeft, isRunning }) {
+export default function Timer({ timeLeft, setTimeLeft, isRunning, toggleTimer, isBreak, completeCycle }) {
   const intervalRef = useRef(null);
 
   useEffect(() => {
     if (isRunning) {
       intervalRef.current = setInterval(() => {
-        setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+        setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
       }, 1000);
     } else {
       clearInterval(intervalRef.current);
@@ -15,6 +15,12 @@ export default function Timer({ timeLeft, setTimeLeft, isRunning }) {
     return () => clearInterval(intervalRef.current);
   }, [isRunning]);
 
+  useEffect(() => {
+    if (timeLeft === 0) {
+      completeCycle();
+    }
+  }, [timeLeft]);
+
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
@@ -22,8 +28,16 @@ export default function Timer({ timeLeft, setTimeLeft, isRunning }) {
   };
 
   return (
-    <div className="text-7xl font-mono my-6 bg-gray-800 px-12 py-6 rounded-lg shadow-lg">
-      {formatTime(timeLeft)}
+    <div className="flex flex-col items-center">
+      <div className={`text-6xl font-mono my-6 ${isBreak ? "text-blue-400" : "text-yellow-400"}`}>
+        {formatTime(timeLeft)}
+      </div>
+      <button
+        className="px-6 py-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded"
+        onClick={toggleTimer}
+      >
+        {isRunning ? "Pause" : "Start"}
+      </button>
     </div>
   );
 }
