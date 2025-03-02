@@ -32,6 +32,10 @@ A **React-based Pomodoro Timer** designed to improve focus and productivity usin
 | **Props**       | Passes data between components                  | `App.js → Timer.js & Controls.js` |
 | **Event Handling** | Controls button clicks for start/pause/reset  | `Controls.js`                      |
 
+## 📽️ Screen Shot
+<p align="center">
+<img width="0800" alt="pomodoro" src="https://github.com/user-attachments/assets/2cef27c2-e96e-4fea-bd04-cdde0a499868"/>
+</p>
 
 Happy coding 🚀
 
