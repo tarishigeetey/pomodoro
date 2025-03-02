@@ -2,6 +2,12 @@
 
 A **React-based Pomodoro Timer** designed to improve focus and productivity using the **Pomodoro Technique**. Built with **React** and **Tailwind CSS**, this minimalist timer helps users work efficiently in **25-minute sessions** with short breaks in between.
 
+## 📽️ Screen Shot
+<p align="center">
+<img width="0600" alt="pomodoro" src="https://github.com/user-attachments/assets/2cef27c2-e96e-4fea-bd04-cdde0a499868"/>
+</p>
+
+
 ## 🎯 Features  
 ✅ **Start, Pause, and Reset** the timer  
 ✅ **25-minute work sessions** for focused productivity  
@@ -31,11 +37,6 @@ A **React-based Pomodoro Timer** designed to improve focus and productivity usin
 | `useRef`        | Stores interval reference without re-renders    | `Timer.js`                        |
 | **Props**       | Passes data between components                  | `App.js → Timer.js & Controls.js` |
 | **Event Handling** | Controls button clicks for start/pause/reset  | `Controls.js`                      |
-
-## 📽️ Screen Shot
-<p align="center">
-<img width="0800" alt="pomodoro" src="https://github.com/user-attachments/assets/2cef27c2-e96e-4fea-bd04-cdde0a499868"/>
-</p>
 
 Happy coding 🚀
 
