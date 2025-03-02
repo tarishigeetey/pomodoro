@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Timer from "./components/Timer";
+import Controls from "./components/Controls";
 
-function App() {
+export default function App() {
+  const [timeLeft, setTimeLeft] = useState(25 * 60); // 25 minutes
+  const [isRunning, setIsRunning] = useState(false);
+
+  const toggleTimer = () => {
+    setIsRunning(!isRunning);
+  };
+
+  const resetTimer = () => {
+    setIsRunning(false);
+    setTimeLeft(25 * 60);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+      <h1 className="text-4xl font-bold mb-6">Pomodoro Timer</h1>
+      <Timer timeLeft={timeLeft} setTimeLeft={setTimeLeft} isRunning={isRunning} />
+      <Controls isRunning={isRunning} toggleTimer={toggleTimer} resetTimer={resetTimer} />
     </div>
   );
 }
-
-export default App;
